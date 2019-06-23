@@ -17,7 +17,8 @@ class Armazon extends Component {
         list_armazones:[],
         id:'',
         estadoForm:'none',
-        nombre:'',precio:0,tipo:""
+        nombre:'',precio:0,tipo:"",
+        descripcion:''
       };
       this.handleInput=this.handleInput.bind(this);
       this.Guarda_marca=this.Guarda_marca.bind(this);
@@ -215,6 +216,11 @@ class Armazon extends Component {
                           </div>
 
                           <div className="form-group">
+                            <label htmlFor="marca">Descripcion</label>
+                            <input type="text" onChange={this.handleInput} value={this.state.descripcion} id="descripcion" name="descripcion" className="form-control"/>
+                          </div>
+
+                          <div className="form-group">
                             <label htmlFor="precio_marca">Precio</label>
                             <input type="number" onChange={this.handleInput} value={this.state.precio_marca} id="precio_marca" name="precio_marca" className="form-control"/>
                           </div>
@@ -309,4 +315,5 @@ class Armazon extends Component {
       );
     }
   }
+  
   export default Armazon;

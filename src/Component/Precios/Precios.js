@@ -15,39 +15,60 @@ class Precio extends Component{
             materiales:[],
             tratamiento:"",
             tratamientos:[],
-            precio:"",
+            precio:0,
             terminados:[],
             terminado:"",
-            esfera1:""/*Rangos*/,
-            esfera2:"",
-            clindro1:"",
-            clindro2:"",
-            eje1:"",
-            eje2:"",//dnp /altura /add
-            dnp1:"",
-            dnp2:"",
-            altura1:"",
-            altura2:"",
-            add1:"",
-            add2:""
+            esfera1:0/*Rangos*/,
+            esfera2:0,
+            clindro1:0,
+            clindro2:0,
+            eje1:0,
+            eje2:0,//dnp /altura /add
+            dnp1:0,
+            dnp2:0,
+            altura1:0,
+            altura2:0,
+            add1:0,
+            add2:0
         }
         this.handleInput=this.handleInput.bind(this);
         this.Guardar=this.Guardar.bind(this);
         this.cancelar=this.cancelar.bind(this);
     }
     Guardar(){
-       
-       
-        
-          
-                                firebase.auth().onAuthStateChanged(user=>{
-                                    if(user){
-                                        if(this.state.dato!==""&&this.state.precio!==""){
-
-
-
-                                            console.log('en proceso....');
-                                            var material=this.state.material+":{"+
+        firebase.auth().onAuthStateChanged(user=>{
+            if(user){
+                if(this.state.dato!==""&&this.state.precio!==""){
+                    const Material={
+                        material:this.state.material,
+                        tratamiento:this.state.tratamiento,
+                        terminado:this.state.terminado,
+                        precio:this.state.precio,
+                        esfera:{
+                            rango1:this.state.esfera1,
+                            rango2:this.state.esfera2
+                        },
+                        cilindro:{
+                            rango1:this.state.clindro1,
+                            rango2:this.state.clindro2
+                        },
+                        datos:{
+                            dnp:{
+                                rango1:this.state.dnp1,
+                                rango2:this.state.dnp2
+                            },
+                            altura:{
+                                rango1:this.state.altura1,
+                                rango2:this.state.altura2
+                            },
+                            add:{
+                                rango1:this.state.add1,
+                                rango2:this.state.add2
+                            }
+                        }
+                    }
+                    console.log('en proceso....');
+                                            /*var material=this.state.material+":{"+
                                                 "tratamiento:"+this.state.tratamiento+
                                                 ",terminado:"+this.state.terminado+
                                                 ",esfera:{"+
@@ -71,24 +92,24 @@ class Precio extends Component{
                                                     "},"+
                                                     "precio:"+this.state.precio+
                                                 "}"+
-                                            "}";
-                                            console.log(material);
+                                            "}";*/
+                                            //console.log(Material);
                                             
-                                            firebase.database().ref("Precios").push(material)
-                                            .then(res=>{
-                                                toast.success("Datos guardados", {
-                                                    position: toast.POSITION.TOP_RIGHT
-                                                });
-                                            })
-                                            .catch(error=>{
-                                                console.log(error);
-                                            });
-                                        }
+                    firebase.database().ref("Precios").push(Material)
+                    .then(res=>{
+                         toast.success("Datos guardados", {
+                            position: toast.POSITION.TOP_RIGHT
+                        });
+                    })
+                    .catch(error=>{
+                        console.log(error);
+                    });
+                }
                                         
-                                    }else{
+            }else{
                                         console.log('no login');
-                                    }
-                                })
+            }
+        })
                                  
     }
     cancelar(){
@@ -274,7 +295,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 ">
-                                            <input type="Text" value={this.state.esfera1} name="esfera1" onChange={this.handleInput}  className=" form-control" /> 
+                                            <input type="number" value={this.state.esfera1} name="esfera1" onChange={this.handleInput}  className=" form-control" /> 
                                         </div>
                                     
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 text-center">
@@ -282,7 +303,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-                                            <input  type="Text" value={this.state.esfera2} name="esfera2" onChange={this.handleInput} className="form-control"/>
+                                            <input  type="number" value={this.state.esfera2} name="esfera2" onChange={this.handleInput} className="form-control"/>
                                         </div>
 
                                     </div>
@@ -300,7 +321,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-                                            <input value={this.state.clindro1} name="clindro1" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input value={this.state.clindro1} name="clindro1" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 text-center">
@@ -308,7 +329,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-                                            <input value={this.state.clindro2} name="clindro2" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input value={this.state.clindro2} name="clindro2" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
 
                                     </div>
@@ -326,7 +347,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 ">
-                                            <input value={this.state.eje1} name="eje1" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input value={this.state.eje1} name="eje1" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 text-center">
@@ -334,7 +355,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 ">
-                                            <input  value={this.state.eje2}  name="eje2" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input  value={this.state.eje2}  name="eje2" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
                                     </div>
                                 </div>
@@ -351,7 +372,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 ">
-                                            <input value={this.state.dnp1} name="dnp1" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input value={this.state.dnp1} name="dnp1" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 text-center">
@@ -359,7 +380,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 ">
-                                            <input value={this.state.dnp2} name="dnp2" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input value={this.state.dnp2} name="dnp2" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
 
                          
@@ -378,7 +399,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-                                            <input value={this.state.altura1} name="altura1" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input value={this.state.altura1} name="altura1" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 text-center">
@@ -386,7 +407,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-                                            <input value={this.state.altura2} name="altura2" onChange={this.handleInput}  type="Text" className="form-control"/>
+                                            <input value={this.state.altura2} name="altura2" onChange={this.handleInput}  type="number" className="form-control"/>
                                         </div>
 
                                     </div>
@@ -404,7 +425,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-                                            <input value={this.state.add1} name="add1" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input value={this.state.add1} name="add1" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2 text-center">
@@ -412,7 +433,7 @@ class Precio extends Component{
                                         </div>
 
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-                                            <input value={this.state.add2} name="add2" onChange={this.handleInput} type="Text" className="form-control"/>
+                                            <input value={this.state.add2} name="add2" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
 
                                     </div>

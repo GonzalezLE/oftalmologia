@@ -13,7 +13,7 @@ class Receta extends Component{
            paciente:"",
            fecha:"",
            fecha_vigencia:"",
-           mica:"",
+           mica:"",//material
            lente:"",
            tratamiento:"",
            armazon_sencillo:"",
@@ -41,12 +41,15 @@ class Receta extends Component{
         this.Guardar=this.Guardar.bind(this);
      
         this.Valida=this.Valida.bind(this);
+        this.valida_Costo=this.valida_Costo.bind(this);
     }
     componentDidMount(){
         this.listar_cortes();
         this.listar_micas();
         this.listar_tratamientos();
         this.trae_receta();
+
+        this.valida_Costo();
     }
     Valida(inicio,fin,saltos,encuentra){
         var correcto=0;
@@ -94,8 +97,8 @@ class Receta extends Component{
             this.setState({
                 micas:newState
             })
-            console.log(this.state.micas);
-            console.log(this.state.micas.length);
+           // console.log(this.state.micas);
+           // console.log(this.state.micas.length);
         })
     }
     //Tratamiento
@@ -119,7 +122,6 @@ class Receta extends Component{
             console.log(this.state.tratamientos.length)*/
         })
     }
-    
     //prueba Recetas
     trae_receta(){
         const itemref=firebase.database().ref('Recetas');
@@ -137,8 +139,8 @@ class Receta extends Component{
             this.setState({
                 Recetas:newState
             })
-            console.log(this.state.Recetas);
-            console.log(this.state.Recetas.length)
+            //console.log(this.state.Recetas);
+          //  console.log(this.state.Recetas.length)
         })
     }
 
@@ -147,9 +149,76 @@ class Receta extends Component{
         this.setState({
           [name]:value
         });
-        //console.log(this.state);
-      }
+    }
+    valida_Costo(){
+        const itemref=firebase.database().ref('Precios');
+        itemref.on('value',(snapshot)=>{
+            let items=snapshot.val();
+            //console.log(items);
+            
+            for(let item in items){
+                if(items[item].material===this.state.mica){
+                    console.log('encontre material');
+                }
+                if(items[item].terminado==='terinado x'){
+                    console.log('encontre terminado')
+                }
+                if(items[item].tratamiento==='tratamiento x'){
+                    console.log('encontre tratamiento');
+                }
 
+                if(items[item].esfera.rango1==='5'){
+                    console.log('encontre esfera rango1');
+                }
+                if(items[item].esfera.rango2==='5'){
+                    console.log('encontre esfera rango2');
+                }
+
+                if(items[item].cilindro.rango1==='5'){
+                    console.log('encontre cilindro rango 1');
+                }
+                if(items[item].cilindro.rango2==='5'){
+                    console.log('encontre cilindro rango 2');
+                }
+
+                if(items[item].datos.dnp.rango1==='5'){
+                    console.log('encontre dnp rango1');
+                }
+
+                if(items[item].datos.dnp.rango2==='5'){
+                    console.log('encontre dnp rango2');
+                }
+
+
+                if(items[item].datos.altura.rango1==='5'){
+                    console.log('encontre altura rango1');
+                }
+                if(items[item].datos.altura.rango2==='5'){
+                    console.log('encontre altura rango2');
+                }
+
+                if(items[item].datos.add.rango1==='5'){
+                    console.log('encontre add rango1');
+                }
+                if(items[item].datos.add.rango2==='5'){
+                    console.log('encontre add rango2');
+                }
+
+                /* Falta Eje
+                */
+
+
+
+
+                console.log();
+                console.log();
+            }
+            //console.log('hola');
+            
+        });
+        
+    }
+    
     Guardar(){
         //validacion de valores de esfera
         if(this.Valida(-30,30,.25,this.state.derecho_esfera)){
@@ -355,7 +424,7 @@ class Receta extends Component{
                     </div>
                     {/*mica*/}
                     <div className="form-group col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <label htmlFor="mica">Mica</label>
+                        <label htmlFor="mica">Material</label>
                         <select id="mica" name="mica" className="form-control" value={this.state.mica} onChange={this.handleInput}>
                             <option value="">Seleccionar</option>
                             {
@@ -412,4 +481,3 @@ class Receta extends Component{
 }
 
 export default Receta;
-
