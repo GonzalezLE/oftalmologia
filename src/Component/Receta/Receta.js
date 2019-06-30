@@ -167,10 +167,12 @@ class Receta extends Component{
                         console.log('encontre tratamiento');
                     }*/
                     //buscando rangos
+                    var a=parseInt(items[item].esfera.rango1);
+                    var b=parseInt(items[item].esfera.rango2);
+                    console.log("suma de a + b = "+(a+b));
                     
-                    if(parseFloat(items[item].esfera.rango1)>=2||parseFloat(items[item].esfera.rango2)<=3){
-                        const x=parseFloat(items[item].esfera.rango1)+parseFloat(items[item].esfera.rango2);
-                        console.log('encontre esfera rango1',x);
+                    if(a>=4||b<=4){
+                        console.log('encontre esfera rango1');
                     }
                     
                     /*
