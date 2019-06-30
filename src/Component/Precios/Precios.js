@@ -67,34 +67,7 @@ class Precio extends Component{
                             }
                         }
                     }
-                    console.log('en proceso....');
-                                            /*var material=this.state.material+":{"+
-                                                "tratamiento:"+this.state.tratamiento+
-                                                ",terminado:"+this.state.terminado+
-                                                ",esfera:{"+
-                                                    "rango1:"+this.state.esfera1+
-                                                    ",rango2:"+this.state.esfera2+
-                                                    ",cilindro:{"+
-                                                        "rango1:"+this.state.clindro1+
-                                                        ",rango2:"+this.state.clindro2+
-                                                    "},"+
-                                                    "dnp:{"+
-                                                        "rango1:"+this.state.dnp1+
-                                                        ",rango2:"+this.state.dnp2+
-                                                    "},"+
-                                                    "altura:{"+
-                                                        "rango1:"+this.state.altura1+
-                                                        ",rango2:"+this.state.altura2+
-                                                    "},"+
-                                                    "add:{"+
-                                                        "rango1:"+this.state.add1+
-                                                        ",rango2:"+this.state.add2+
-                                                    "},"+
-                                                    "precio:"+this.state.precio+
-                                                "}"+
-                                            "}";*/
-                                            //console.log(Material);
-                                            
+                    console.log('en proceso....');                        
                     firebase.database().ref("Precios").push(Material)
                     .then(res=>{
                          toast.success("Datos guardados", {
@@ -107,7 +80,7 @@ class Precio extends Component{
                 }
                                         
             }else{
-                                        console.log('no login');
+                console.log('no login');
             }
         })
                                  

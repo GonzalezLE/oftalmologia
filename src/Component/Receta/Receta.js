@@ -48,7 +48,7 @@ class Receta extends Component{
         this.listar_micas();
         this.listar_tratamientos();
         this.trae_receta();
-
+        
         this.valida_Costo();
     }
     Valida(inicio,fin,saltos,encuentra){
@@ -155,69 +155,60 @@ class Receta extends Component{
         itemref.on('value',(snapshot)=>{
             let items=snapshot.val();
             //console.log(items);
-            
+            //convertidor parseFloat           
             for(let item in items){
-                if(items[item].material===this.state.mica){
-                    console.log('encontre material');
-                }
-                if(items[item].terminado==='terinado x'){
+                if(items[item].material==='cr-39'){
+                        console.log('encontre material');                
+                    
+                    /*if(items[item].terminado==='terinado x'){
                     console.log('encontre terminado')
-                }
-                if(items[item].tratamiento==='tratamiento x'){
-                    console.log('encontre tratamiento');
-                }
+                    }
+                    if(items[item].tratamiento==='tratamiento x'){
+                        console.log('encontre tratamiento');
+                    }*/
+                    //buscando rangos
+                    
+                    if(parseFloat(items[item].esfera.rango1)>=2||parseFloat(items[item].esfera.rango2)<=3){
+                        const x=parseFloat(items[item].esfera.rango1)+parseFloat(items[item].esfera.rango2);
+                        console.log('encontre esfera rango1',x);
+                    }
+                    
+                    /*
 
-                if(items[item].esfera.rango1==='5'){
-                    console.log('encontre esfera rango1');
+                    if(items[item].cilindro.rango1==='5'){
+                        console.log('encontre cilindro rango 1');
+                    }
+
+                    if(items[item].cilindro.rango2==='5'){
+                        console.log('encontre cilindro rango 2');
+                    }
+
+                    if(items[item].datos.dnp.rango1==='5'){
+                        console.log('encontre dnp rango1');
+                    }
+
+                    if(items[item].datos.dnp.rango2==='5'){
+                        console.log('encontre dnp rango2');
+                    }
+
+                    if(items[item].datos.altura.rango1==='5'){
+                        console.log('encontre altura rango1');
+                    }
+                    if(items[item].datos.altura.rango2==='5'){
+                        console.log('encontre altura rango2');
+                    }
+
+                    if(items[item].datos.add.rango1==='5'){
+                        console.log('encontre add rango1');
+                    }
+                    if(items[item].datos.add.rango2==='5'){
+                        console.log('encontre add rango2');
+                    }*/
                 }
-                if(items[item].esfera.rango2==='5'){
-                    console.log('encontre esfera rango2');
-                }
-
-                if(items[item].cilindro.rango1==='5'){
-                    console.log('encontre cilindro rango 1');
-                }
-                if(items[item].cilindro.rango2==='5'){
-                    console.log('encontre cilindro rango 2');
-                }
-
-                if(items[item].datos.dnp.rango1==='5'){
-                    console.log('encontre dnp rango1');
-                }
-
-                if(items[item].datos.dnp.rango2==='5'){
-                    console.log('encontre dnp rango2');
-                }
-
-
-                if(items[item].datos.altura.rango1==='5'){
-                    console.log('encontre altura rango1');
-                }
-                if(items[item].datos.altura.rango2==='5'){
-                    console.log('encontre altura rango2');
-                }
-
-                if(items[item].datos.add.rango1==='5'){
-                    console.log('encontre add rango1');
-                }
-                if(items[item].datos.add.rango2==='5'){
-                    console.log('encontre add rango2');
-                }
-
-                /* Falta Eje
-                */
-
-
-
-
-                console.log();
-                console.log();
             }
-            //console.log('hola');
-            
         });
         
-    }
+    } 
     
     Guardar(){
         //validacion de valores de esfera
