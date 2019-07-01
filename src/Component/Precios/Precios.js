@@ -6,6 +6,7 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Menu from '../default/Menu';
 import Header from '../default/Header';
+import LosPrecios from './../../libreria/Precios';
 
 class Precio extends Component{  
     constructor(){
@@ -106,6 +107,7 @@ class Precio extends Component{
         })
     }
     componentDidMount(){
+        //LosPrecios.prueba();
         this.listar_micas();
         this.listar_tratamientos();
         this.listar_cortes();
