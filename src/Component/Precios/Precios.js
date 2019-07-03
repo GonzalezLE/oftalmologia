@@ -39,35 +39,81 @@ class Precio extends Component{
     Guardar(){
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                if(this.state.dato!==""&&this.state.precio!==""){
-                    const Material={
-                        material:this.state.material,
-                        tratamiento:this.state.tratamiento,
-                        terminado:this.state.terminado,
-                        precio:this.state.precio,
-                        esfera:{
-                            rango1:this.state.esfera1,
-                            rango2:this.state.esfera2
-                        },
-                        cilindro:{
-                            rango1:this.state.clindro1,
-                            rango2:this.state.clindro2
-                        },
-                        datos:{
-                            dnp:{
-                                rango1:this.state.dnp1,
-                                rango2:this.state.dnp2
-                            },
-                            altura:{
-                                rango1:this.state.altura1,
-                                rango2:this.state.altura2
-                            },
-                            add:{
-                                rango1:this.state.add1,
-                                rango2:this.state.add2
-                            }
-                        }
+                var Material,bandera=1;
+                if(this.state.material!==''&&this.state.tratamiento===''&&this.state.terminado===''&&(this.state.esfera1===0&&this.state.esfera2===0)
+                &&(this.state.clindro1===0&&this.state.clindro2===0)&&(this.state.eje1===0&&this.state.eje2===0)&&(this.state.dnp1===0&&this.state.dnp2===0)
+                &&(this.state.altura1===0&&this.state.altura2===0)&&(this.state.add1===0&&this.state.add2===0)){
+                    if(this.state.precio>0){
+                        Material=LosPrecios.objeto_Material(this.state.material,this.state.precio);
+                        bandera=0;
+                        console.log(Material);
+                    }else{
+                        alert('Ingresa datos en el precio');
                     }
+                    
+                }//precio
+                if(this.state.material!==''&&this.state.tratamiento===''&&this.state.terminado===''&&(this.state.esfera1!==0&&this.state.esfera2!==0)
+                &&(this.state.clindro1!==0&&this.state.clindro2!==0)&&(this.state.eje1===0&&this.state.eje2===0)&&(this.state.dnp1===0&&this.state.dnp2===0)
+                &&(this.state.altura1===0&&this.state.altura2===0)&&(this.state.add1===0&&this.state.add2===0)){
+                    if(this.state.precio>0){
+                        Material=LosPrecios.objeto_material_con_Esfera_cilindro(this.state.material,this.state.precio,this.state.esfera1,this.state.esfera2,this.state.clindro1,this.state.clindro2);
+                        console.log(Material);
+                        bandera=0;
+                    }else{
+                        alert('Ingresa datos en el precio');
+                    }
+                }//objeto_material_esf_cil_eje
+                if(this.state.material!==''&&this.state.tratamiento===''&&this.state.terminado===''&&(this.state.esfera1!==0&&this.state.esfera2!==0)
+                &&(this.state.clindro1!==0&&this.state.clindro2!==0)&&(this.state.eje1!==0&&this.state.eje2!==0)&&(this.state.dnp1===0&&this.state.dnp2===0)
+                &&(this.state.altura1===0&&this.state.altura2===0)&&(this.state.add1===0&&this.state.add2===0)){
+                    if(this.state.precio>0){
+                        
+                        Material=LosPrecios.objeto_material_esf_cil_eje(this.state.material,this.state.precio,this.state.esfera1,this.state.esfera2,this.state.clindro1,this.state.clindro2,this.state.eje1,this.state.eje2);
+                        console.log(Material);
+                        bandera=0;
+                    }else{
+                        alert('Ingresa datos en el precio');
+                    }
+                }//objeto_material_esf_cil_add
+                if(this.state.material!==''&&this.state.tratamiento===''&&this.state.terminado===''&&(this.state.esfera1!==0&&this.state.esfera2!==0)
+                &&(this.state.clindro1!==0&&this.state.clindro2!==0)&&(this.state.eje1===0&&this.state.eje2===0)&&(this.state.dnp1===0&&this.state.dnp2===0)
+                &&(this.state.altura1===0&&this.state.altura2===0)&&(this.state.add1!==0&&this.state.add2!==0)){
+                    if(this.state.precio>0){
+                        
+                        Material=LosPrecios.objeto_material_esf_cil_add(this.state.material,this.state.precio,this.state.esfera1,this.state.esfera2,this.state.clindro1,this.state.clindro2,this.state.add1,this.state.add2);
+                        console.log(Material);
+                        bandera=0;
+                    }else{
+                        alert('Ingresa datos en el precio');
+                    }
+                }//esfera cilindro y altura
+                if(this.state.material!==''&&this.state.tratamiento===''&&this.state.terminado===''&&(this.state.esfera1!==0&&this.state.esfera2!==0)
+                &&(this.state.clindro1!==0&&this.state.clindro2!==0)&&(this.state.eje1===0&&this.state.eje2===0)&&(this.state.dnp1===0&&this.state.dnp2===0)
+                &&(this.state.altura1!==0&&this.state.altura2!==0)&&(this.state.add1===0&&this.state.add2===0)){
+                    if(this.state.precio>0){
+                        Material=LosPrecios.objeto_material_esf_cil_altura(this.state.material,this.state.precio,this.state.esfera1,this.state.esfera2,this.state.clindro1,this.state.clindro2,this.state.altura1,this.state.altura2);
+                        console.log(Material);
+                        bandera=0;
+                    }else{
+                        alert('Ingresa datos en el precio');
+                    }
+                }////esfera cilindro y dnp
+                if(this.state.material!==''&&this.state.tratamiento===''&&this.state.terminado===''&&(this.state.esfera1!==0&&this.state.esfera2!==0)
+                &&(this.state.clindro1!==0&&this.state.clindro2!==0)&&(this.state.eje1===0&&this.state.eje2===0)&&(this.state.dnp1!==0&&this.state.dnp2!==0)
+                &&(this.state.altura1===0&&this.state.altura2===0)&&(this.state.add1===0&&this.state.add2===0)){
+                    if(this.state.precio>0){
+                        Material=LosPrecios.objeto_material_esf_cil_dnp(this.state.material,this.state.precio,this.state.esfera1,this.state.esfera2,this.state.clindro1,this.state.clindro2,this.state.dnp1,this.state.dnp2);
+                        console.log(Material);
+                        bandera=0;
+                    }else{
+                        alert('Ingresa datos en el precio');
+                    }
+                }
+
+                console.log(this.state.precio);
+                if(bandera){
+                    alert('nos has ingresado bien los datos');
+                }else{
                     console.log('en proceso....');                        
                     firebase.database().ref("Precios").push(Material)
                     .then(res=>{
@@ -79,13 +125,21 @@ class Precio extends Component{
                         console.log(error);
                     });
                 }
-                                        
+
+                
+                
+                
+
+
+                       
             }else{
                 console.log('no login');
             }
         })
                                  
     }
+
+    
     cancelar(){
         this.setState({
             material:"",
