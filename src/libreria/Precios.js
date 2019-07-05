@@ -6,6 +6,8 @@ function objeto_Material(material,precio){
     }
     return Precios;
 }
+
+//#region 
 //esfera cilindro
 function objeto_material_con_Esfera_cilindro(material,precio,esfera1,esfera2,cilindro1,cilindro2){
     const Precios={
@@ -102,6 +104,8 @@ function objeto_material_esf_cil_dnp(material,precio,esfera1,esfera2,cilindro1,c
     }
     return Precios;
 }
+
+
 //esfera-cilindro-eje-dnp 
 function objeto_material_esf_cil_eje_dnp(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2){
     const Precios={
@@ -202,6 +206,7 @@ function objeto_material_esf_cil_eje_dnp_Altura(material,precio,esfera1,esfera2,
     }
     return Precios;
 }
+
 //esfera-cilindro-eje-dnp-add
 function objeto_material_esf_cil_eje_dnp_add(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,add1,add2){
     const Precios={
@@ -262,11 +267,13 @@ function objeto_material_esf_cil_eje_dnp_Altura_add(material,precio,esfera1,esfe
     }
     return Precios;
 }
+//#endregion
 
+//#region  los mismos solo que con  tratamiento
 /**
  * los mismos solo que con  tratamiento
 */
-function objeto_material_con_Esfera_cilindro_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2){
+function objeto_material_con_Esfera_cilindro_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -276,13 +283,14 @@ function objeto_material_con_Esfera_cilindro_Tratamiento(material,precio,esfera1
                 rango1:cilindro1,
                 rango2:cilindro2,
                 precio:precio
-            }
+            },
+            tratamiento
         }
     }
     return Precios;
 }
 //esfera cilindro y eje
-function objeto_material_esf_cil_eje_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2){
+function objeto_material_esf_cil_eje_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -295,6 +303,7 @@ function objeto_material_esf_cil_eje_Tratamiento(material,precio,esfera1,esfera2
                     rango1:eje1,
                     rango2:eje2
                 },
+                tratamiento,
                 precio:precio
             }
         }
@@ -302,7 +311,7 @@ function objeto_material_esf_cil_eje_Tratamiento(material,precio,esfera1,esfera2
     return Precios;
 }
 //esfera cilindro y add
-function objeto_material_esf_cil_add_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,add1,add2){
+function objeto_material_esf_cil_add_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,add1,add2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -315,14 +324,15 @@ function objeto_material_esf_cil_add_Tratamiento(material,precio,esfera1,esfera2
                     rango1:add1,
                     rango2:add2
                 },
-                precio:precio
+                precio:precio,
+                tratamiento
             }
         }
     }
     return Precios;
 }
 //esfera cilindro y altura
-function objeto_material_esf_cil_altura_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,altura1,altura2){
+function objeto_material_esf_cil_altura_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,altura1,altura2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -335,6 +345,7 @@ function objeto_material_esf_cil_altura_Tratamiento(material,precio,esfera1,esfe
                     rango1:altura1,
                     rango2:altura2
                 },
+                tratamiento,
                 precio:precio
             }
         }
@@ -342,7 +353,7 @@ function objeto_material_esf_cil_altura_Tratamiento(material,precio,esfera1,esfe
     return Precios;
 }
 //esfera cilindro y dnp
-function objeto_material_esf_cil_dnp_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,dnp1,dnp2){
+function objeto_material_esf_cil_dnp_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,dnp1,dnp2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -355,6 +366,7 @@ function objeto_material_esf_cil_dnp_Tratamiento(material,precio,esfera1,esfera2
                     rango1:dnp1,
                     rango2:dnp2
                 },
+                tratamiento,
                 precio:precio
             }
         }
@@ -362,7 +374,7 @@ function objeto_material_esf_cil_dnp_Tratamiento(material,precio,esfera1,esfera2
     return Precios;
 }
 //esfera-cilindro-eje-dnp 
-function objeto_material_esf_cil_eje_dnp_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2){
+function objeto_material_esf_cil_eje_dnp_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -379,6 +391,7 @@ function objeto_material_esf_cil_eje_dnp_Tratamiento(material,precio,esfera1,esf
                     rango1:dnp1,
                     rango2:dnp2
                 },
+                tratamiento,
                 precio:precio
             }
         }
@@ -386,7 +399,7 @@ function objeto_material_esf_cil_eje_dnp_Tratamiento(material,precio,esfera1,esf
     return Precios;
 }
 //esfera-cilindro-eje-altura
-function objeto_material_esf_cil_eje_altura_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,altura1,altura2){
+function objeto_material_esf_cil_eje_altura_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,altura1,altura2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -403,6 +416,7 @@ function objeto_material_esf_cil_eje_altura_Tratamiento(material,precio,esfera1,
                     rango1:altura1,
                     rango2:altura2
                 },
+                tratamiento,
                 precio:precio
             }
         }
@@ -410,7 +424,7 @@ function objeto_material_esf_cil_eje_altura_Tratamiento(material,precio,esfera1,
     return Precios;
 }
 //esfera-cilindro-eje-add
-function objeto_material_esf_cil_eje_add_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,add1,add2){
+function objeto_material_esf_cil_eje_add_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,add1,add2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -427,6 +441,7 @@ function objeto_material_esf_cil_eje_add_Tratamiento(material,precio,esfera1,esf
                     rango1:add1,
                     rango2:add2
                 },
+                tratamiento,
                 precio:precio
             }
         }
@@ -434,7 +449,7 @@ function objeto_material_esf_cil_eje_add_Tratamiento(material,precio,esfera1,esf
     return Precios;
 }
 //esfera-cilindro-eje-dnp-altura
-function objeto_material_esf_cil_eje_dnp_Altura_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,altura1,altura2){
+function objeto_material_esf_cil_eje_dnp_Altura_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,altura1,altura2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -455,14 +470,16 @@ function objeto_material_esf_cil_eje_dnp_Altura_Tratamiento(material,precio,esfe
                     rango1:altura1,
                     rango2:altura2
                 },
+                tratamiento,
                 precio:precio
             }
         }
     }
     return Precios;
 }
-//esfera-cilindro-eje-dnp-add
-function objeto_material_esf_cil_eje_dnp_add_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,add1,add2){
+
+//esfera-cilindro-eje-dnp-add =>
+function objeto_material_esf_cil_eje_dnp_add_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,add1,add2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -483,6 +500,7 @@ function objeto_material_esf_cil_eje_dnp_add_Tratamiento(material,precio,esfera1
                     rango1:add1,
                     rango2:add2
                 },
+                tratamiento,
                 precio:precio
             }
         }
@@ -490,7 +508,7 @@ function objeto_material_esf_cil_eje_dnp_add_Tratamiento(material,precio,esfera1
     return Precios;
 }
 // guarda todos loss datos
-function objeto_material_esf_cil_eje_dnp_Altura_add_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,altura1,altura2,add1,add2){
+function objeto_material_esf_cil_eje_dnp_Altura_add_Tratamiento(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,altura1,altura2,add1,add2,tratamiento){
     const Precios={
         material:material,
         esfera:{
@@ -515,17 +533,22 @@ function objeto_material_esf_cil_eje_dnp_Altura_add_Tratamiento(material,precio,
                     rango1:add1,
                     rango2:add2
                 },
+                tratamiento,
                 precio:precio
             }
         }
     }
     return Precios;
 }
+//#endregion
+
+
+//#region os mismos solo que con  tratamiento y Terminada
 
 /**
  * los mismos solo que con  tratamiento y Terminada
 */
-function objeto_material_con_Esfera_cilindro_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2){
+function objeto_material_con_Esfera_cilindro_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -534,6 +557,8 @@ function objeto_material_con_Esfera_cilindro_Tratamiento_Terminado(material,prec
             cilindro:{
                 rango1:cilindro1,
                 rango2:cilindro2,
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -541,7 +566,7 @@ function objeto_material_con_Esfera_cilindro_Tratamiento_Terminado(material,prec
     return Precios;
 }
 //esfera cilindro y eje
-function objeto_material_esf_cil_eje_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2){
+function objeto_material_esf_cil_eje_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -554,14 +579,17 @@ function objeto_material_esf_cil_eje_Tratamiento_Terminado(material,precio,esfer
                     rango1:eje1,
                     rango2:eje2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
     }
     return Precios;
 }
+
 //esfera cilindro y add
-function objeto_material_esf_cil_add_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,add1,add2){
+function objeto_material_esf_cil_add_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,add1,add2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -574,6 +602,8 @@ function objeto_material_esf_cil_add_Tratamiento_Terminado(material,precio,esfer
                     rango1:add1,
                     rango2:add2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -581,7 +611,7 @@ function objeto_material_esf_cil_add_Tratamiento_Terminado(material,precio,esfer
     return Precios;
 }
 //esfera cilindro y altura
-function objeto_material_esf_cil_altura_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,altura1,altura2){
+function objeto_material_esf_cil_altura_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,altura1,altura2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -594,6 +624,8 @@ function objeto_material_esf_cil_altura_Tratamiento_Terminado(material,precio,es
                     rango1:altura1,
                     rango2:altura2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -601,7 +633,7 @@ function objeto_material_esf_cil_altura_Tratamiento_Terminado(material,precio,es
     return Precios;
 }
 //esfera cilindro y dnp
-function objeto_material_esf_cil_dnp_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,dnp1,dnp2){
+function objeto_material_esf_cil_dnp_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,dnp1,dnp2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -614,6 +646,8 @@ function objeto_material_esf_cil_dnp_Tratamiento_Terminado(material,precio,esfer
                     rango1:dnp1,
                     rango2:dnp2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -621,7 +655,7 @@ function objeto_material_esf_cil_dnp_Tratamiento_Terminado(material,precio,esfer
     return Precios;
 }
 //esfera-cilindro-eje-dnp 
-function objeto_material_esf_cil_eje_dnp_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2){
+function objeto_material_esf_cil_eje_dnp_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -638,6 +672,8 @@ function objeto_material_esf_cil_eje_dnp_Tratamiento_Terminado(material,precio,e
                     rango1:dnp1,
                     rango2:dnp2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -645,7 +681,7 @@ function objeto_material_esf_cil_eje_dnp_Tratamiento_Terminado(material,precio,e
     return Precios;
 }
 //esfera-cilindro-eje-altura
-function objeto_material_esf_cil_eje_altura_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,altura1,altura2){
+function objeto_material_esf_cil_eje_altura_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,altura1,altura2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -662,6 +698,8 @@ function objeto_material_esf_cil_eje_altura_Tratamiento_Terminado(material,preci
                     rango1:altura1,
                     rango2:altura2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -669,7 +707,7 @@ function objeto_material_esf_cil_eje_altura_Tratamiento_Terminado(material,preci
     return Precios;
 }
 //esfera-cilindro-eje-add
-function objeto_material_esf_cil_eje_add_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,add1,add2){
+function objeto_material_esf_cil_eje_add_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,add1,add2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -686,6 +724,8 @@ function objeto_material_esf_cil_eje_add_Tratamiento_Terminado(material,precio,e
                     rango1:add1,
                     rango2:add2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -693,7 +733,7 @@ function objeto_material_esf_cil_eje_add_Tratamiento_Terminado(material,precio,e
     return Precios;
 }
 //esfera-cilindro-eje-dnp-altura
-function objeto_material_esf_cil_eje_dnp_Altura_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,altura1,altura2){
+function objeto_material_esf_cil_eje_dnp_Altura_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,altura1,altura2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -714,6 +754,8 @@ function objeto_material_esf_cil_eje_dnp_Altura_Tratamiento_Terminado(material,p
                     rango1:altura1,
                     rango2:altura2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -721,7 +763,7 @@ function objeto_material_esf_cil_eje_dnp_Altura_Tratamiento_Terminado(material,p
     return Precios;
 }
 //esfera-cilindro-eje-dnp-add
-function objeto_material_esf_cil_eje_dnp_add_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,add1,add2){
+function objeto_material_esf_cil_eje_dnp_add_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,add1,add2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -742,6 +784,8 @@ function objeto_material_esf_cil_eje_dnp_add_Tratamiento_Terminado(material,prec
                     rango1:add1,
                     rango2:add2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -749,7 +793,7 @@ function objeto_material_esf_cil_eje_dnp_add_Tratamiento_Terminado(material,prec
     return Precios;
 }
 // guarda todos loss datos
-function objeto_material_esf_cil_eje_dnp_Altura_add_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,altura1,altura2,add1,add2){
+function objeto_material_esf_cil_eje_dnp_Altura_add_Tratamiento_Terminado(material,precio,esfera1,esfera2,cilindro1,cilindro2,eje1,eje2,dnp1,dnp2,altura1,altura2,add1,add2,tratamiento,terminado){
     const Precios={
         material:material,
         esfera:{
@@ -774,6 +818,8 @@ function objeto_material_esf_cil_eje_dnp_Altura_add_Tratamiento_Terminado(materi
                     rango1:add1,
                     rango2:add2
                 },
+                tratamiento,
+                terminado,
                 precio:precio
             }
         }
@@ -781,7 +827,7 @@ function objeto_material_esf_cil_eje_dnp_Altura_add_Tratamiento_Terminado(materi
     return Precios;
 }
 
-
+//#endregion
 
 export default{
     objeto_Material,
