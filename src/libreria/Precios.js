@@ -2,7 +2,7 @@
 function objeto_Material(material,precio){
     const Precios={
         material:material,
-        precio,precio
+        precio
     }
     return Precios;
 }

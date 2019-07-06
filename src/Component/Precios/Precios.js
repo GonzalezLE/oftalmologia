@@ -684,64 +684,84 @@ class Precio extends Component{
             <div>
                 <Header/>
                 <Menu/>
-                <div className="content-wrapper" >
-                    <div className="content">                   
-                        <div className="row">
-                        <div className="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
-                            <label htmlFor="mica">Material</label>
-                            <select id="material" name="material" className="form-control" value={this.state.material} onChange={this.handleInput}>
-                                <option value="">Seleccionar</option>
-                                {
-                                    this.state.materiales.map((item)=>{
-                                        return(
-                                            <option key={item.id} value={item.nombre}>{item.nombre}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                        </div>
-
-                        <div className="form-group col-xs-6 col-sm-4 col-md-4 col-lg-4 ">
-                            <label htmlFor="tratamiento">Tratamiento</label>
-                            <select id="tratamiento" name="tratamiento" className="form-control" value={this.state.tratamiento} onChange={this.handleInput}>
-                                <option value="">Seleccionar</option>
-                                {
-                                    this.state.tratamientos.map((item)=>{
-                                        return(
-                                            <option key={item.id} value={item.nombre}>{item.nombre}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                        </div>
-
-                        <div className="form-group col-xs-4">
-                            <label htmlFor="precio">Precio</label>
-                            <input type="Text" id="precio" name="precio" className="form-control" value={this.state.precio} onChange={this.handleInput}/>
-                        </div>
-
-                        <div className="form-group col-xs-6 col-sm-4 col-md-4 col-lg-4 ">
-                            <label htmlFor="lente">Terminados</label>
-                            <select id="lente" name="terminado" className="form-control" value={this.state.terminado} onChange={this.handleInput}>
-                                <option value="">Seleccionar</option>
-                                {
-                                    this.state.terminados.map((item)=>{
-                                        return(
-                                            <option key={item.id} value={item.nombre}>{item.nombre}</option>
-                                        )
-                                    })
-                                }
-                            </select>               
-                        </div>
-                        <button className="float-right btn btn-danger col-xs-5 col-sm-5 col-md-6 col-lg-3" onClick={this.Guardar}>Guardar</button>
-                               
-                        <button className="float-right btn btn-primary col-xs-5 col-sm-5 col-md-6 col-lg-3" onClick={this.cancelar} >Cancelar</button>
-
-                    </div>    
-                    </div>
-                                    
+                <div className="content-wrapper" >       
                     <div className=" content">
                         <div className="row">
+                        <div className="col-md-12">
+                                {/* Custom Tabs */}
+                                <div className="nav-tabs-custom">
+                                    <ul className="nav nav-tabs">
+                                        <li className="active"><a href="#tab_Material" data-toggle="tab">Material</a></li>
+                                        <li><a href="#tab_Tratamiento" data-toggle="tab">Tratamiento</a></li>
+                                        <li><a href="#tab_Terminado" data-toggle="tab">Terminado</a></li>
+                                    </ul>
+
+                                    <div className="tab-content">
+                                        <div className="tab-pane active" id="tab_Material">
+                                            <div className="callout callout-success text-center">
+                                                <b>Selecciona el Material</b>                
+                                            </div>
+                                            <div className="row">
+                                                <div className="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                                    <label htmlFor="mica">Material</label>
+                                                    <select id="material" name="material" className="form-control" value={this.state.material} onChange={this.handleInput}>
+                                                        <option value="">Seleccionar</option>
+                                                        {
+                                                            this.state.materiales.map((item)=>{
+                                                                return(
+                                                                    <option key={item.id} value={item.nombre}>{item.nombre}</option>
+                                                                )
+                                                            })
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <div className="tab-pane" id="tab_Tratamiento">
+                                            <div className="callout callout-success text-center">
+                                                <b>Selecciona el Tratamiento</b>                
+                                            </div>
+                                            <div className="row">
+                                                <div className="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                                    <label htmlFor="tratamiento">Tratamiento</label>
+                                                    <select id="tratamiento" name="tratamiento" className="form-control" value={this.state.tratamiento} onChange={this.handleInput}>
+                                                        <option value="">Seleccionar</option>
+                                                        {
+                                                            this.state.tratamientos.map((item)=>{
+                                                                return(
+                                                                    <option key={item.id} value={item.nombre}>{item.nombre}</option>
+                                                                )
+                                                            })
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="tab-pane" id="tab_Terminado">
+                                            <div className="callout callout-success text-center">
+                                                <b>Selecciona el Terminado</b>                
+                                            </div>
+                                            <div className="row">
+                                                <div className="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label htmlFor="lente">Terminados</label>
+                                                    <select id="lente" name="terminado" className="form-control" value={this.state.terminado} onChange={this.handleInput}>
+                                                        <option value="">Seleccionar</option>
+                                                        {
+                                                            this.state.terminados.map((item)=>{
+                                                                return(
+                                                                    <option key={item.id} value={item.nombre}>{item.nombre}</option>
+                                                                )
+                                                            })
+                                                        }
+                                                    </select>               
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> 
+                                </div>
+                        
+                            </div>
                             <div className="col-md-12">
                             {/* Custom Tabs */}
                             <div className="nav-tabs-custom">
@@ -908,17 +928,34 @@ class Precio extends Component{
                                         <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
                                             <input value={this.state.add2} name="add2" onChange={this.handleInput} type="number" className="form-control"/>
                                         </div>
+                                        <div className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+                                            <input value={this.state.add2} name="add2" onChange={this.handleInput} type="number" className="form-control"/>
+                                        </div>
 
+                                        
                                     </div>
                                 </div>
                             </div>
-                        
                         </div>
-                        
-                        </div>
-                        </div>
+                    </div>
+
+
+                    <div className="form-group col-xs-6 col-sm-6 col-md-2 col-lg-2">
+                        <label htmlFor="precio">Precio</label>
+                        <input type="Text" id="precio" name="precio" className="form-control" value={this.state.precio} onChange={this.handleInput}/>
+                    </div>
+                    <div className="form-group col-xs-6 col-sm-6 col-md-2 col-lg-2">
+                         <br/>
+                        <button className="float-right btn btn-danger col-xs-6 col-sm-3 col-md-3 col-lg-3" onClick={this.Guardar}>Guardar</button>
+                        <button className="float-right btn btn-primary col-xs-6 col-sm-3 col-md-3 col-lg-3" onClick={this.cancelar} >Cancelar</button>
+                    </div>
+
+                    
+
+                </div>
 
         </div>
+                
                 </div>    
             </div>
         )
